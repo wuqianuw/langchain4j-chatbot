@@ -1,0 +1,20 @@
+# Project-level ignores
+node_modules/
+dist/
+target/
+.idea/
+*.class
+*.log
+
+# Understand-Anything output
+sourcecode/.understand-anything/
+
+# Large docs / design assets (keep in local only)
+项目uploads文件/
+项目运行截图/
+高清设计图/
+测试素材/
+
+# OS
+.DS_Store
+Thumbs.db

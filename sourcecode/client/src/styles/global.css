@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --brand: #1a56db;
+  --brand-light: #3b82f6;
+  --brand-dark: #1e40af;
+  --brand-gradient: linear-gradient(135deg, #1a56db 0%, #4f46e5 50%, #7c3aed 100%);
+  --primary: var(--brand);
+  --primary-light: var(--brand-light);
+  --primary-dark: var(--brand-dark);
+  --success: #059669;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  --surface: rgba(255, 255, 255, 0.92);
+  --surface-strong: #ffffff;
+  --surface-muted: #f8fafc;
+  --border: rgba(15, 23, 42, 0.08);
+  --border-light: rgba(15, 23, 42, 0.04);
+  --gradient: var(--brand-gradient);
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow: 0 4px 16px rgba(15, 23, 42, 0.07);
+  --shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.10);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --radius-xs: 8px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', system-ui, sans-serif;
+  background: #f6f8fc;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: var(--primary); }
+
+/* ===== Shared UI Components ===== */
+
+.glass-card {
+  background: var(--surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.brand-btn {
+  background: var(--brand-gradient) !important;
+  border: none !important;
+  color: #fff !important;
+  border-radius: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s ease, transform 0.15s ease !important;
+}
+
+.brand-btn:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px);
+}
+
+.brand-btn:active {
+  transform: translateY(0);
+}
+
+/* Brand logo treatment */
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--brand-gradient);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0;
+  flex-shrink: 0;
+}
+
+.page-container {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ===== Element Plus Overrides ===== */
+
+.el-table {
+  --el-table-header-bg-color: var(--surface-muted) !important;
+  --el-table-border-color: var(--border) !important;
+  --el-table-row-hover-bg-color: rgba(26, 86, 219, 0.04) !important;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.el-table th.el-table__cell {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.el-table .el-table__cell { word-break: break-word; }
+
+.el-input__wrapper,
+.el-textarea__inner,
+.el-select__wrapper {
+  border-radius: 10px !important;
+  box-shadow: 0 0 0 1px var(--border) inset !important;
+  transition: box-shadow 0.2s ease !important;
+}
+
+.el-input__wrapper.is-focus,
+.el-select__wrapper.is-focused {
+  box-shadow: 0 0 0 1.5px var(--primary) inset, 0 0 0 4px rgba(26, 86, 219, 0.08) !important;
+}
+
+.el-button { border-radius: 10px; }
+
+.el-dialog {
+  border-radius: var(--radius) !important;
+}
+
+.el-dialog__header {
+  padding: 24px 24px 0 !important;
+  font-weight: 600;
+}
+
+.el-dialog__body { padding: 20px 24px !important; }
+
+.el-dialog__footer {
+  padding: 0 24px 20px !important;
+}
+
+.el-pagination {
+  --el-pagination-button-color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* ===== Scrollbar ===== */
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(71, 85, 105, 0.35); }
+
+/* ===== Reduced Motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

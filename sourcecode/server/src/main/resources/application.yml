@@ -1,0 +1,49 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: omni-chat-server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/db_omni_chat2?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.java1234.omnichat.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix: t_
+
+
+upload:
+  path: D:/uploads7
+  url-prefix: /api/uploads7
+
+
+jwt:
+  secret: Java1234OmniChatSecretKey2026LangChain4jMultimodal
+  expiration: 86400000
+
+
+langchain4j:
+  openai:
+    base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
+    api-key: ${OPENAI_API_KEY:sk-ws-H.RPMLLYH.cZx2.MEQCIHig-CNqJV_r3NuA3boYx0hGrZ7vTXZPv09LgJW_fLyEAiAr4KgKd_bYdfIaF0XauFCv0NGfE4rCYqDR2ejq5UWLrQ}
+    model-name: qwen3.5-omni-plus
+    timeout: 120s
